@@ -44,5 +44,5 @@ def get_transcript(url: str) -> str:
         return f"Error fetching transcript: {str(e)}"
 
 if __name__ == "__main__":
-    # v2 allows starting via python directly if needed, or via CLI
-    pass
+    port = int(os.getenv("PORT", 8080))
+    mcp.run(transport="streamable-http", port=port, host="0.0.0.0")
